@@ -1,0 +1,10 @@
+1. Non, exécuter un conteneur n’est pas la même chose qu’exécuter une machine virtuelle Une machine virtuelle  exécute entièrement un système d’exploitation invité au-dessus d’un hyperviseur. Elle a donc son propre noyau, son propre système de fichiers et consomme plus de ressources (RAM, CPU).Par contre, un conteneur, lui, partage le noyau de l’OS hôte. Il isole uniquement l’environnement applicatif (système de fichiers, processus, réseau, etc.).
+2.Un conteneur est une abstraction d’application, car il regroupe uniquement ce qu’il faut pour exécuter un logiciel, sans embarquer un OS  complet. Il n’émule pas du matériel comme une VM, il virtualise l’espace utilisateur (applications, dépendances, bibliothèques, etc.).
+3.Oui, On peut exécuter des conteneurs Docker à l’intérieur d’une machine virtuelle.
+ Il suffit d’installer le moteur Docker (Docker Engine) sur le système d’exploitation de la machine virtuelle, puis de lancer les conteneurs dessus.Ainsi, la VM fournit une couche d’isolation matérielle, tandis que Docker gère l’isolation applicative via ses conteneurs.
+4.Le conteneur a exécuté la commande echo "hello from alpine".Cette commande a simplement affiché le texte dans le terminal.
+5.Docker a lancé un conteneur Alpine et a essayé d’ouvrir un shell interactif /bin/sh.Comme aucun mode interactif n’a été précisé, le conteneur démarre, ouvre le shell, puis se ferme aussitôt.
+6.Avec l’option -it, Docker ouvre le conteneur en mode interactif avec un terminal attaché.
+ On entre directement dans le shell /bin/sh du conteneur et on peux taper des commandes .
+7.Parce que chaque exécution de la commande docker container run crée une nouvelle instance de conteneur, même si elle utilise la même image de base.L’image Alpine sert uniquement de modèle.À chaque run, Docker crée un conteneur distinct et isolé à partir de cette image.Chacun de ces conteneurs a son propre système de fichiers, son propre espace de noms et son propre cycle de vie.
+Une fois la commande terminée, le conteneur s’arrête, mais il reste enregistré dans la liste 
